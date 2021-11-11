@@ -45,6 +45,13 @@
 	}
 	// import makeId from './api/[makeId].js';
 	
+	let Make_value
+
+	Make.subscribe(value => {
+		Make_value = value;
+	});
+
+
 </script>
 
 <form action="" on:submit|preventDefault={onSubmit}>
@@ -55,7 +62,7 @@
 			options={makes}
 			id="make" required> 
 	
-		<select id="make" name="make" multiple on:change={e => $Model.set}></select>
+		<select id="make" name="make" multiple bind:value={$Make}></select>
 		
 	</el-svelecte>
 	<el-svelecte name="child_value" parent="make" required placeholder="model"
@@ -68,8 +75,7 @@
 	<el-svelecte name="child_value" parent="model" required placeholder="year"
 		searchable=True
 		clearable=True
-		
-		fetch="/api/{$Make}/models/[parent]">
+		fetch="/api/{Make}/models/[parent]">
 	</el-svelecte> 
 
 	{#if payload}
