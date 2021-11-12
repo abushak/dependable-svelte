@@ -1,5 +1,5 @@
 <script context="module">
-	import { getModelsByMakeId, vechile } from "$lib/store";
+	import { getModelsByMakeId } from "$lib/store";
 
 	
 	export async function load(params) {
